@@ -24,8 +24,8 @@ Using `mini_css` from the command line is too simple:
 
     mini_css [-o output_file] file_name[ file_name2 ...]
 
-You can compress one CSS file, or compress more than one to mash them together
-as one big compress file.
+You can compress one CSS file, or compress more than one, and mash them together
+as one big compressed file.
 
 You can specify the location and name of the output file; it defaults to
 mini_cssified.css in the current working directory.
