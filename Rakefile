@@ -12,7 +12,7 @@ require 'lib/mini_css'
 
 spec = Gem::Specification.new do |s|
   s.name = 'mini_css'
-  s.version = '0.0.1'
+  s.version = Mini_CSS.version
   s.has_rdoc = true
   s.extra_rdoc_files = ['README.markdown']
   s.summary = 'Minimise your CSS files using by compressing and combining them into one file. Reduce HTTP requests, file size, and save bandwidth.'

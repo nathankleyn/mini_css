@@ -7,18 +7,26 @@ STDOUT.sync = true
 output_location = ARGV[ARGV.index('-o') + 1] if ARGV.include?('-o')
 output_location ||= File.join(Dir.getwd, 'mini_cssified.css')
 
-puts 'Saving all compressed CSS in one file at "' + output_location + '"...'
-
 files = ARGV
 if files.include?('-o')
   files.delete_at(files.index('-o') + 1)
   files.delete_at(files.index('-o'))
 end
 
-output = Mini_CSS.compress(files)
+unless files.include?('-h') || files.include?('-help') || files.include?('--h') || files.include?('--help') || files.empty?
+  puts 'Saving all compressed CSS in one file at "' + output_location + '"...' 
+  
+  output = Mini_CSS.compress(files)
 
-File.open(output_location, 'w+') do |f|
-  f.write(output)
+  File.open(output_location, 'w+') do |f|
+    f.write(output)
+  end
+
+  puts 'Done!'
+else
+  puts 'mini_css: usage: mini_css [-o output_css] css_file[ css_file2 ...]'
+  puts ''
+  puts 'Optional flags:'
+  puts '    -o: The path of the file to output the compressed CSS to.'
+  puts '    -h --h -help --help: Show this help info.'
 end
-
-puts 'Done!'

@@ -3,7 +3,7 @@ require 'rainpress'
 
 class Mini_CSS
   def self.version
-    '0.0.1'
+    '0.0.2'
   end
 
   def self.compress(files)
