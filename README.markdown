@@ -22,7 +22,7 @@ proceedure.
 
 Using `mini_css` from the command line is too simple:
 
-    mini_css [-o output_file] file_name[, file_name2, ...]
+    mini_css [-o output_file] file_name[ file_name2 ...]
 
 You can compress one CSS file, or compress more than one to mash them together
 as one big compress file.
