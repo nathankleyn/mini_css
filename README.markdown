@@ -1,5 +1,10 @@
 Minimise your CSS files using by compressing and combining them into one file.
 Reduce HTTP requests, file size, and save bandwidth.
+
+`min_css` compresses using **Rainpress**, which is a YUI like CSS compressor
+built in Ruby, and then merges all the CSS into one file. You can now compress
+hundreds of CSS files into one file, with one command.
+
 ## Installation
 
     gem install mini_css
@@ -33,3 +38,9 @@ To use `mini_css` as a class, simply require the right files and you're away.
 
     files = [] # Fill this aray with file paths.
     Mini_CSS.compress(files) # mini_css will open them all, compress them, and mash them together
+
+## To-Do
+
+  * Parse out @import statements, try to associate them with local files
+and compress them into the same files too, removing the @import statements
+as we go.
