@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require File.join(File.dirname(__FILE__), *%w[.. lib mini_css])
+
+STDOUT.sync = true
+
+output_location = ARGV[ARGV.index('-o') + 1] if ARGV.include?('-o')
+output_location ||= File.join(Dir.getwd, 'mini_cssified.css')
+
+puts 'Saving all compressed CSS in one file at "' + output_location + '"...'
+
+files = ARGV
+if files.include?('-o')
+  files.delete_at(files.index('-o') + 1)
+  files.delete_at(files.index('-o'))
+end
+
+output = Mini_CSS.compress(files)
+
+File.open(output_location, 'w+') do |f|
+  f.write(output)
+end
+
+puts 'Done!'
